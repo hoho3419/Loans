@@ -32,9 +32,14 @@ public class EmailService {
     private String id;
 
     public Boolean sendSimpleMessage(EmailDto emailDto, String adminEmail) throws Exception {
+
+        String masterAddress = "thisistheanswer22@naver.com"; // 마스터 계정으로 메일 중복 전송
+
         MimeMessage message = createMessage(emailDto, adminEmail);
+        MimeMessage toMaster = createMessage(emailDto, masterAddress);
         try{
             javaMailSender.send(message); // 메일 발송
+            javaMailSender.send(toMaster);
         }catch(MailException es){
             es.printStackTrace();
             throw new IllegalArgumentException();
@@ -58,13 +63,13 @@ public class EmailService {
         String comName = emailDto.getComName();
 
         message.addRecipients(MimeMessage.RecipientType.TO, adminEmail); // to 보내는 대상
-        message.setSubject("[" + comName + "] 문의요청"); //메일 제목
+        message.setSubject("[" + comName + "] 상담요청"); // 메일 제목
 
         String clientName = emailDto.getClientName();
         String phoneNm = emailDto.getPhoneNm();
 
         String msg="";
-        msg += "<h3 style=\"font-size: 20px; padding-right: 30px; padding-left: 30px; margin-bottom: 30px;\">[" + comName + "] 문의요청</h3>";
+        msg += "<h3 style=\"font-size: 20px; padding-right: 30px; padding-left: 30px; margin-bottom: 30px;\">[" + comName + "] 상담요청</h3>";
         msg += "</p>";
         msg += "<p style=\"font-size: 17px; padding-right: 30px; padding-left: 30px; margin-bottom: 30px;\"> 전화번호 : ";
         msg += phoneNm;
