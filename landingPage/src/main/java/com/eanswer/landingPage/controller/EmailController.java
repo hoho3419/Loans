@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
-@CrossOrigin(origins = "http://localhost:3000")
 public class EmailController {
     @Autowired
     private EmailService emailService;
@@ -20,6 +19,7 @@ public class EmailController {
     public Object findEmailOverlap(@RequestBody EmailDto emailDto) throws Exception {
 
         String email = emailDto.getAdminEmail();
+        System.out.println(email);
         Boolean isTrue = emailService.sendSimpleMessage(emailDto, email);
 
         return new ResponseEntity<>(isTrue, HttpStatus.OK);

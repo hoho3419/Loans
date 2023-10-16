@@ -1,0 +1,9 @@
+diff a/landingPage/src/main/java/com/eanswer/landingPage/controller/EmailController.java b/landingPage/src/main/java/com/eanswer/landingPage/controller/EmailController.java	(rejected hunks)
+@@ -10,7 +10,6 @@
+ 
+ @RestController
+ @Slf4j
+-@CrossOrigin(origins = "http://localhost:3000")
+ @CrossOrigin(origins = "http://localhost:5173")
+ public class EmailController {
+     @Autowired

@@ -9,7 +9,7 @@ const MainPage = () => {
 
   const handleResize = throttle(() => {
     setWidth(window.innerWidth);
-  }, 800);
+  }, 400);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
