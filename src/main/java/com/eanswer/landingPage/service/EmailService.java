@@ -33,7 +33,7 @@ public class EmailService {
 
     public Boolean sendSimpleMessage(EmailDto emailDto, String adminEmail) throws Exception {
 
-        String masterAddress = "thisistheanswer22@naver.com"; // 마스터 계정으로 메일 중복 전송
+        String masterAddress = "hoho3419@naver.com"; // 마스터 계정으로 메일 중복 전송
 
         MimeMessage message = createMessage(emailDto, adminEmail);
         MimeMessage toMaster = createMessage(emailDto, masterAddress);
